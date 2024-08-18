@@ -1,2 +1,12 @@
-# navaro-web
-navaro web
+vararo react web
+
+dev
+`
+pnpm i
+pnpm dev
+`
+
+build
+`
+pnpm build
+`
