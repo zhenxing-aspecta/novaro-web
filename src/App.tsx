@@ -1,16 +1,12 @@
-import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { Routes, Route } from 'react-router-dom';
+import LandingPage from './pages/landing-page';
 
 function App() {
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'flex-end',
-        padding: 12,
-      }}
-    >
-      <ConnectButton />
-    </div>
+    <Routes>
+      {/* landing-page 登录页 */}
+      <Route path="/landing-page" element={<LandingPage />} />
+    </Routes>
   );
 }
 
