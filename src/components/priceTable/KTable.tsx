@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { init, dispose } from "klinecharts";
-import api from "../api";
+import api from "../../api/line";
 export const KTable = (props) => {
   const [kdata, setKdata] = useState([]);
   const list = [

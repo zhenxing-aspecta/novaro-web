@@ -1,5 +1,5 @@
-import { LineTable } from "../LineTable";
-import { KTable } from "../KTable";
+import { LineTable } from "./LineTable";
+import { KTable } from "./KTable";
 import { useState } from "react";
 
 export const PriceTable = () => {

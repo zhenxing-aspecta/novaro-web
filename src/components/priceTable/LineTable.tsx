@@ -1,4 +1,4 @@
-import api from "../api";
+import api from "../../api/line";
 import { useState, useEffect, useRef } from "react";
 import Chart from "chart.js/auto";
 
