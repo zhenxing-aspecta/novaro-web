@@ -1,0 +1,26 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+input {
+    outline: none;
+    box-shadow: none; 
+    border: 0;
+}
+
+@font-face {
+    font-family: 'Manjari';
+    src: url('/src/assets/fonts/Manjari-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Manjari';
+    src: url('/src/assets/fonts/Manjari-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}

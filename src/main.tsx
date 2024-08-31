@@ -2,12 +2,13 @@ import '@rainbow-me/rainbowkit/styles.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import './utils/viewport'
 import { WagmiProvider } from 'wagmi';
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import App from './App';
 import { config } from './wagmi';
 import { BrowserRouter } from 'react-router-dom';
-
+import './global.css'
 
 const queryClient = new QueryClient();
 
