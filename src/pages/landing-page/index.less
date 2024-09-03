@@ -1,4 +1,246 @@
 .container {
     flex: 1;
     position: relative;
+    .header {
+        display: flex;
+        height: 70px;
+        width: '100%';
+        flex-direction: row;
+        align-items: center;
+        background-color: #FFF;
+        justify-content: space-between;
+        .header_icon {
+            width: 179px;
+            height: 52px;
+            margin-left: 238px;
+            background: url('@/assets/landing-page/novaro-icon.png') no-repeat;
+            background-size: 100% 100%;
+        }
+        .login {
+            width: 143px;
+            height: 45px;
+            margin-right: 319px;
+            border-radius: 52px;
+            background-color: #000;
+            color: #fff;
+            line-height: 45px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 700;
+            font-family: 'Manjari';
+        }
+    }
+    .content_one {
+        height: 952px;
+        display: flex;
+        flex-direction: column;
+        background-color: #5B85F2;
+        position: relative;
+        .line1_left {
+            position: absolute;
+            left: 241px;
+            top: 257px;
+            font-family: 'Manjari';
+            font-weight: 700;
+            font-size: 48px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .line1_left_text1 {
+                color: #FFCE42;
+                margin-right: 20px;
+            }
+            .line1_left_text2 {
+                color: #FF8A57;
+                margin-right: 20px;
+            }
+            .line1_left_text3 {
+                color: #59ECC5;
+            }
+        }
+        .line2_left {
+            position: absolute;
+            left: 241px;
+            top: 335px;
+            font-family: 'Manjari';
+            font-weight: 700;
+            font-size: 48px;
+            color: #fff;
+        }
+        .line3_left {
+            position: absolute;
+            left: 241px;
+            top: 418px;
+            font-family: 'Manjari';
+            font-size: 32px;
+            color: #fff;
+        }
+        .line1_right {
+            position: absolute;
+            width: 555px;
+            right: 269px;
+            top: 267px;
+            font-family: 'Manjari';
+            font-size: 24px;
+            color: #fff;
+        }
+        .line2_right {
+            position: absolute;
+            display: flex;
+            width: 555px;
+            right: 269px;
+            top: 340px;
+            height: 70px;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            .code_input {
+                width: 70px;
+                height: 70px;
+                text-align: center;
+                font-size: 18px;
+                border-radius: 20px;
+                background-color: #fff;
+                color: #1d97e7;
+                font-size: 30px;
+                font-weight: 700;
+            }
+        }
+        .line3_right {
+            position: absolute;
+            width: 555px;
+            right: 269px;
+            top: 445px;
+            font-family: 'Manjari';
+            font-size: 24px;
+            color: #fff;
+        }
+    }
+    .content_two {
+        height: 756px;
+        border-radius: 60px 60px 0 0;
+        background-color: #fff;
+        position: relative;
+        margin-top: -60px;
+        .line1_left {
+            position: absolute;
+            left: 329px;
+            top: 178px;
+            font-family: 'Manjari';
+            font-weight: 700;
+            font-size: 36px;
+            color: #2B2525;
+        }
+        .line2_left {
+            position: absolute;
+            left: 329px;
+            top: 254px;
+            font-family: 'Manjari';
+            font-size: 24px;
+            color: #2B2525;
+            width: 500px;
+            line-height: 39px;
+        }
+        .learn-more {
+            position: absolute;
+            left: 329px;
+            top: 374px;
+            width: 206px;
+            height: 64px;
+            border-radius: 64px;
+            border: 1px solid #000;
+            line-height: 64px;
+            text-align: center;
+            color: #000;
+            font-family: 'Manjari';
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .content_two_pict {
+            position: absolute;
+            right: 280px;
+            top: 139px;
+            width: 684px;
+            height: 470px;
+            background: url('@/assets/landing-page/content_two_pict.png') no-repeat;
+            background-size: 100% 100%;
+        }
+    }
+    .content_three {
+        height: 743px;
+        background-color: #fff;
+        position: relative;
+        .content_three_pict {
+            position: absolute;
+            left: 351px;
+            top: 91px;
+            width: 475px;
+            height: 518px;
+            background: url('@/assets/landing-page/content_three_pict.png') no-repeat;
+            background-size: 100% 100%;
+        }
+        .line1_right {
+            position: absolute;
+            width: 453px;
+            right: 484px;
+            top: 178px;
+            font-family: 'Manjari';
+            font-weight: 700;
+            font-size: 36px;
+            color: #2B2525;
+        }
+        .line2_right {
+            position: absolute;
+            width: 453px;
+            right: 484px;
+            top: 253px;
+            font-family: 'Manjari';
+            font-size: 24px;
+            color: #2B2525;
+        }
+        .learn-more {
+            position: absolute;
+            width: 211px;
+            right: 731px;
+            top: 334px;
+            height: 64px;
+            border-radius: 64px;
+            border: 1px solid #000;
+            line-height: 64px;
+            text-align: center;
+            color: #000;
+            font-family: 'Manjari';
+            font-size: 18px;
+            font-weight: 700;
+        }
+    }
+    .content_four {
+        height: 720px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #fff;
+        .four_text {
+            margin-top: 147px;
+            font-family: 'Manjari';
+            font-weight: 700;
+            font-size: 36px;
+            color: #2B2525;
+        }
+        .staking_button {
+            margin-top: 45px;
+            height: 64px;
+            border-radius: 64px;
+            border: 1px solid #000;
+            line-height: 64px;
+            text-align: center;
+            padding-left: 45px;
+            padding-right: 45px;
+            color: #000;
+            font-family: 'Manjari';
+            font-size: 18px;
+            font-weight: 700;
+        }
+    }
 }
+
