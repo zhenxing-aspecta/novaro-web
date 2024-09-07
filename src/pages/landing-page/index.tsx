@@ -1,6 +1,6 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import "./index.less";
-import { ChangeEvent, KeyboardEvent, useRef, useState } from "react";
+import { ChangeEvent, KeyboardEvent, useRef, useState, useEffect } from "react";
 import logo from "../../assets/landing-page/logo.png";
 import part1Left from "../../assets/landing-page/part1Left.png";
 import part1Right from "../../assets/landing-page/part1Right.png";
@@ -40,6 +40,19 @@ const LandingPage = () => {
       inputsRef.current[index - 1].focus();
     }
   };
+
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setAnimate(true);
+      setTimeout(() => {
+        setAnimate(false);
+      }, 3000);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const socialList = [
     {
@@ -174,7 +187,10 @@ const LandingPage = () => {
         <img src={part1Left} className="part1Left" />
         <img src={part1Back} className="part1Back" />
         <div className="image-container">
-          <img src={part1Ufo} className="part1Ufo rotate-image" />
+          <img
+            src={part1Ufo}
+            className={`part1Ufo rotate-image ${animate ? "rotate" : ""}`}
+          />
         </div>
 
         <img src={part1Human} className="part1Human" />
@@ -209,10 +225,16 @@ const LandingPage = () => {
       <div className="bottom">
         <img src={bottomKV} className="bottomKV" />
         <div className="image-container">
-          <img src={planet} className="planet rotate-image" />
+          <img
+            src={planet}
+            className={`planet rotate-image ${animate ? "rotate" : ""}`}
+          />
         </div>
         <div className="image-container">
-          <img src={rocket} className="rocket rotate-image" />
+          <img
+            src={rocket}
+            className={`rocket rotate-image ${animate ? "rotate" : ""}`}
+          />
         </div>
         <div className="bottom_social">
           <img src={logo} className="logo" />

@@ -320,9 +320,11 @@
   }
 }
 .image-container:hover .rotate-image {
-  animation: rotate 1s linear forwards; /* 旋转动画 */
+  animation: rotate 1s linear infinite;
 }
-
+.rotate {
+  animation: rotate 3s linear forwards;
+}
 @keyframes rotate {
   0% {
     transform: rotate(0deg);
