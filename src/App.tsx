@@ -1,13 +1,11 @@
-import { Routes, Route } from "react-router-dom";
-import LandingPage from "./pages/landing-page";
+import { RouterProvider } from 'react-router-dom'
+import router from './router/index.tsx'
 
 function App() {
-  return (
-    <Routes>
-      {/* landing-page 登录页 */}
-      <Route path="/landing-page" element={<LandingPage />} />
-    </Routes>
-  );
+    return (
+        <div className="app">
+            <RouterProvider router={router}/>
+        </div>
+    )
 }
-
 export default App;
