@@ -1,9 +1,9 @@
 
 import { getDefaultConfig } from '@rainbow-me/rainbowkit';
-import { arbitrum, base, mainnet, optimism, polygon } from 'wagmi/chains';
+import { arbitrum, base, mainnet, optimism, polygon, localhost  } from 'wagmi/chains';
 
 export const config = getDefaultConfig({
-  appName: 'react-web3-nft',
-  projectId: '1231231',
-  chains: [mainnet, polygon, optimism, arbitrum, base],
+  appName: 'navaro-web',
+  projectId: 'navaro-web',
+  chains: [mainnet, polygon, optimism, arbitrum, base, localhost],
 });
