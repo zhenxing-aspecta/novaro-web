@@ -1,9 +1,9 @@
 import BlogItem from "./BlogItem.tsx";
-const BlogList = () => {
-    return (
-        <div>
-            <BlogItem/>
-        </div>
-    )
-}
-export default BlogList
+const BlogList = ({ setDetailid }) => {
+  return (
+    <div>
+      <BlogItem setDetailid={setDetailid} />
+    </div>
+  );
+};
+export default BlogList;
