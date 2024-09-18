@@ -2,8 +2,9 @@ import { useAccount, useReadContract } from "wagmi";
 import "./index.less";
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import MintButton from "../../components/MintButton";
-import dst from "../../contracts/tokens/DynamicSocialToken.json";
+import dst from "../../abi/tokens/DynamicSocialToken.json";
 import { CONSTRACT_ADDRESS_LOCAL } from "../../constants";
+import { create } from 'ipfs-http-client';
 
 
 const SpacePage = () => {
@@ -22,13 +23,21 @@ const SpacePage = () => {
     console.log("@data", data, error);
 
     return (
-        <div>
-            <ConnectButton />
+        <div className="container">
+            <div className="nft">
+                <div className="level">
+                    <div className="level_icon"></div>
+                    <div className="level-text">Level:</div>
+                    <div className="level-grade">5</div>
+                </div>
+            </div>
+            {/* <ConnectButton />
             <div className="box">
                 <div>isPending: {isPending? 'true': 'false'}</div>
                 <div>data</div>
             </div>
-            <MintButton />
+            <MintButton /> */}
+
         </div>
     )
 }

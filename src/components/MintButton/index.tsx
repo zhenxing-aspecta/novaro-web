@@ -5,7 +5,7 @@ import {
   useWriteContract,
 } from "wagmi";
 import "./index.less";
-import dst from "../../contracts/tokens/DynamicSocialToken.json";
+import dst from "../../abi/tokens/DynamicSocialToken.json";
 import { CONSTRACT_ADDRESS_LOCAL } from "../../constants";
 
 const MintButton = () => {
