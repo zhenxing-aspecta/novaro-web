@@ -1,7 +1,9 @@
-
+import NftItem from "./NftItem.tsx";
 const NftList = () => {
     return (
-        <div></div>
+        <div>
+            <NftItem/>
+        </div>
     )
 }
 export default NftList

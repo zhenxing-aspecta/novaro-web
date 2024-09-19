@@ -1,0 +1,113 @@
+.nft-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  z-index: 1000;
+}
+
+.nft-dialog-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #fff;
+  width: 839px;
+  height: 782px;
+  border-radius: 16px;
+  padding: 61px 48px;
+  position: relative;
+  .nft-dialog-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  .nft-dialog-body {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    .upload {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 4px;
+      width: 261px;
+      height: 211px;
+      text-align: center;
+      background: #F9F9FC;
+      .upload-text {
+        color: #bfbfc9;
+        font-size: 14px;
+        &:first-of-type{
+          margin-bottom: 8px;
+        }
+      }
+
+      img {
+        width: 50px;
+      }
+    }
+    .nft-dialog-inputs {
+      margin-left: 16px;
+      input{
+        background: #F9F9FC;
+        border-radius: 4px;
+        border: none;
+        margin: 0;
+        padding: 0;
+        width: 453px;
+        height: 72px;
+        &:first-of-type{
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+  .nft-dialog-description {
+    margin-top: 24px;
+    .nft-dialog-textarea{
+      background: #F9F9FC;
+      border: none;
+      margin: 0;
+      padding: 0;
+      border-radius: 4px;
+      width: 743px;
+      height: 200px;
+    }
+  }
+  .btn {
+    margin-top: 60px;
+  }
+  .nft-dialog-cost {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #bfbfc9;
+  }
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+}
+.label-name {
+  margin-bottom: 8px;
+  color: #202226;
+  font-size: 20px;
+  font-weight: 500;
+  .start{
+    margin-left: 8px;
+  }
+}
+.limit-num {
+  font-size: 16px;
+  color: #bfbfc9;
+}

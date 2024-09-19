@@ -6,12 +6,16 @@ interface NovButtonProps {
     backgroundColor?: string;
     textColor?: string;
     icon?: JSX.Element; // 使用 JSX.Element 类型
+    onClick?: () => void; // 添加 onClick 属性
 }
-const NovButton: React.FC<NovButtonProps> = ({text, width, backgroundColor, textColor, icon}) => {
+const NovButton: React.FC<NovButtonProps> = ({text, width, backgroundColor, textColor, icon,onClick}) => {
     const [loading, setLoading] = useState(false);
 
     const handleClick = async () => {
         setLoading(true);
+        if (onClick) {
+            onClick(); // 执行传入的 onClick 回调
+        }
         // 模拟异步操作
         setTimeout(() => {
             setLoading(false);
