@@ -8,81 +8,128 @@ import blog5 from "../../assets/blog/blog5.svg";
 import comment1 from "../../assets/blog/comment1.svg";
 import comment2 from "../../assets/blog/comment2.svg";
 import comment3 from "../../assets/blog/comment3.svg";
+import { useEffect, useState } from "react";
+import { formatDateTime } from "../../utils/constant";
+import api from "../../api/request";
 
 const BlogItem = ({
   showIcon = true,
   showFollow = true,
   isComment = false,
-  setDetailid = (id: string) => {},
+  setDetailid = (id: number) => {},
+  item = {},
+  index = 0,
+  setModalVisiable,
+  setCommentId,
 }) => {
-  const godetail = (id: string) => {
+  console.log(item, index, "item");
+  const [iconList, setIconList] = useState([{}]);
+  const [commentList, setCommentList] = useState([{}]);
+  useEffect(() => {
+    setIconList([
+      { img: blog1, count: item.tagsAmount },
+      { img: blog2, count: item.tagsAmount },
+      { img: blog3, count: item.tagsAmount },
+      { img: blog4, count: item.tagsAmount },
+      { img: blog5, count: item.tagsAmount },
+    ]);
+    setCommentList([
+      { img: comment1, count: item.commentsAmount },
+      { img: comment2, count: item.repostsAmount },
+      { img: comment3, count: item.viewAmount },
+    ]);
+  }, [item]);
+  const godetail = (id: number) => {
     if (setDetailid) {
       setDetailid(id);
     }
   };
-  const iconList = [
-    { img: blog1, count: 100 },
-    { img: blog2, count: 100 },
-    { img: blog3, count: 100 },
-    { img: blog4, count: 100 },
-    { img: blog5, count: 100 },
-  ];
-  const commentList = [
-    { img: comment1, count: 100 },
-    { img: comment2, count: 100 },
-    { img: comment3, count: 100 },
-  ];
-  return (
-    <div className="item">
-      <div className="header">
-        <div className="avatar">
-          <Avatar isRounded theme="image" />
-        </div>
-
-        <div className="detail">
-          <div className="name">
-            <div>Alan Tsang</div>
-            <div className="date">12 Apr at 09:28 pm</div>
+  const follow = (id: string) => {
+    console.log(id);
+  };
+  const commentClick = async (index: number) => {
+    if (index === 0) {
+      setModalVisiable(true);
+      setCommentId(item.id);
+      return;
+    } else if (index === 1) {
+      const res = await api.put("/v1/api/posts/resave", {
+        userId: item.userId,
+        content: item.content,
+        originalId: item.id,
+      });
+      console.log(res);
+    } else {
+      return;
+    }
+  };
+  // const addComment = async() => {
+  //   const res = await api.post('/v1/api/comments/add' ,{
+  //     userId:,
+  //     postId:,
+  //     content: comment,
+  //     parentId:
+  //   })
+  // }
+  if (Object.keys(item).length !== 0) {
+    return (
+      <div className="item">
+        <div className="header">
+          <div className="avatar">
+            <Avatar isRounded theme="image" />
           </div>
-          {showFollow && <div className="follow">Follow</div>}
+
+          <div className="detail">
+            <div className="name">
+              <div>{item.user.userName}</div>
+              <div className="date">{formatDateTime(item.createdAt)}</div>
+            </div>
+            {showFollow && (
+              <div className="follow" onClick={() => follow(item.userId)}>
+                Follow
+              </div>
+            )}
+          </div>
         </div>
-      </div>
-      <div
-        className="content"
-        style={{ marginLeft: isComment ? "50px" : 0 }}
-        onClick={() => godetail("1")}
-      >
-        Please note that some processing of your personal data may not require
-        your consent, but you have a right to object to such processing
-        😍😍😍...
-      </div>
-      {showIcon && (
-        <div className="iconList">
-          {iconList.map((item, index) => {
+        <div
+          className="content"
+          style={{ marginLeft: isComment ? "50px" : 0 }}
+          onClick={() => godetail(index)}
+        >
+          {item.content}
+        </div>
+        {showIcon && (
+          <div className="iconList">
+            {iconList.map((item, index) => {
+              return (
+                <div key={index} className="iconItem">
+                  <img src={item.img} className="icon" />
+                  <div>{item.count}</div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        <div
+          className="commentList"
+          style={{ marginLeft: isComment ? "50px" : 0 }}
+        >
+          {commentList.map((item, index) => {
             return (
-              <div key={index} className="iconItem">
-                <img src={item.img} className="icon" />
+              <div
+                key={index}
+                className="commentItem"
+                onClick={() => commentClick(index)}
+              >
+                <img src={item.img} className="commentIcon" />
                 <div>{item.count}</div>
               </div>
             );
           })}
         </div>
-      )}
-
-      <div
-        className="commentList"
-        style={{ marginLeft: isComment ? "50px" : 0 }}
-      >
-        {commentList.map((item, index) => {
-          return (
-            <div key={index} className="commentItem">
-              <img src={item.img} className="commentIcon" />
-              <div>{item.count}</div>
-            </div>
-          );
-        })}
       </div>
-    </div>
-  );
+    );
+  }
 };
 export default BlogItem;

@@ -1,10 +1,24 @@
 .home-container {
+  height: 100%;
   display: flex;
+  overflow: auto;
 }
 .home-left {
   padding: 36px 31px;
   width: 1220px;
   border-right: 1px solid #ededed;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    .search {
+      height: 40px;
+      width: 323px;
+      font-weight: 500;
+      font-size: 15px;
+      line-height: 24px;
+    }
+  }
   .back {
     width: 90px;
     height: 24px;
@@ -71,4 +85,10 @@
     color: #202226;
     margin-bottom: 24px;
   }
+}
+.searchInput {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 24px;
+  padding: 0;
 }

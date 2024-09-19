@@ -1,8 +1,19 @@
 import BlogItem from "./BlogItem.tsx";
-const BlogList = ({ setDetailid }) => {
+const BlogList = ({ setDetailid, list, setModalVisiable, setCommentId }) => {
   return (
     <div>
-      <BlogItem setDetailid={setDetailid} />
+      {list.map((item, index) => {
+        return (
+          <BlogItem
+            key={index}
+            setDetailid={setDetailid}
+            item={item}
+            index={index}
+            setModalVisiable={setModalVisiable}
+            setCommentId={setCommentId}
+          />
+        );
+      })}
     </div>
   );
 };
