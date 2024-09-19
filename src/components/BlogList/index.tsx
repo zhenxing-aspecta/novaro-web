@@ -1,5 +1,16 @@
 import BlogItem from "./BlogItem.tsx";
-const BlogList = ({ setDetailid, list, setModalVisiable, setCommentId }) => {
+interface NovButtonProps {
+  setDetailid?: Function;
+  list: [];
+  setModalVisiable?: Function;
+  setCommentId?: Function;
+}
+const BlogList: React.FC<NovButtonProps> = ({
+  setDetailid,
+  list,
+  setModalVisiable,
+  setCommentId,
+}) => {
   return (
     <div>
       {list.map((item, index) => {

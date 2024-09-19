@@ -8,21 +8,30 @@ import blog5 from "../../assets/blog/blog5.svg";
 import comment1 from "../../assets/blog/comment1.svg";
 import comment2 from "../../assets/blog/comment2.svg";
 import comment3 from "../../assets/blog/comment3.svg";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { formatDateTime } from "../../utils/constant";
 import api from "../../api/request";
+interface NovButtonProps {
+  showIcon?: boolean;
+  showFollow?: boolean;
+  isComment?: boolean;
+  setDetailid?: Function;
+  item: {};
+  index?: number;
+  setModalVisiable?: Function;
+  setCommentId?: Function;
+}
 
-const BlogItem = ({
+const BlogItem: React.FC<NovButtonProps> = ({
   showIcon = true,
   showFollow = true,
   isComment = false,
-  setDetailid = (id: number) => {},
-  item = {},
+  setDetailid,
+  item,
   index = 0,
   setModalVisiable,
   setCommentId,
 }) => {
-  console.log(item, index, "item");
   const [iconList, setIconList] = useState([{}]);
   const [commentList, setCommentList] = useState([{}]);
   useEffect(() => {
@@ -81,11 +90,11 @@ const BlogItem = ({
 
           <div className="detail">
             <div className="name">
-              <div>{item.user.userName}</div>
-              <div className="date">{formatDateTime(item.createdAt)}</div>
+              <div>{item?.user.userName}</div>
+              <div className="date">{formatDateTime(item?.createdAt)}</div>
             </div>
             {showFollow && (
-              <div className="follow" onClick={() => follow(item.userId)}>
+              <div className="follow" onClick={() => follow(item?.userId)}>
                 Follow
               </div>
             )}
@@ -96,7 +105,7 @@ const BlogItem = ({
           style={{ marginLeft: isComment ? "50px" : 0 }}
           onClick={() => godetail(index)}
         >
-          {item.content}
+          {item?.content}
         </div>
         {showIcon && (
           <div className="iconList">

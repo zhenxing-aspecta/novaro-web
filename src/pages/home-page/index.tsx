@@ -15,7 +15,7 @@ import { useEffect } from "react";
 const HomePage = () => {
   const [detailid, setDetailid] = useState(-1);
   const [post, setPost] = useState("");
-  const [list, setList] = useState([]);
+  const [list, setList] = useState<[]>([]);
   const [item, setItem] = useState({}); //detail
   const [modalVisiable, setModalVisiable] = useState(false);
   const [commentId, setCommentId] = useState(0);
