@@ -1,46 +1,141 @@
 .container {
-    padding: 33px 39px 79px 45px;
-    background-color: #F7F7F7;
-    border-radius: 24px 24px 0 0;
-}
-
-.nft {
-    width: 1372px;
-    height: 528px;
-    border-radius: 12px;
-    position: relative;
-    background-color: aqua;
-    .level {
-        display: flex;
-        position: absolute;
-        left: 26px;
-        bottom: 81px;
-        height: 37px;
-        border-radius: 27px;
-        padding-left: 13px;
-        padding-right: 24px;
-        flex-direction: row;
-        align-items: center;
-        background: linear-gradient(to bottom, rgba(232, 255, 226, 0.7), rgba(214, 255, 204, 0.7));
-        border: 1px solid #fff;
-        .level_icon {
-            width: 32px;
-            height: 24px;
-            background: url('../../assets/space-page/space-nft-icon.png') no-repeat;
-            background-size: 100% 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: #fff;
+    .content {
+        margin-left: 32px;
+        margin-right: 48px;
+        width: 1209px;
+        .search {
+            margin-top: 36px;
+            margin-bottom: 44px;
+            height: 44px;
         }
-        .level-text {
-            font-weight: 500;
-            font-size: 14px;
-            color: #070606;
-            margin-left: 9px;
+        .nft { 
+            width: 1209px;
+            height: 453px;
+            border-radius: 16px;
+            position: relative;
+            background-color: #ccc;
+            .progress {
+                position: absolute;
+                left: 28px;
+                top: 36px;
+                width: 200px;
+                height: 12px;
+                border-radius: 6px;
+                background-color: aqua;
+            }
+            .grade {
+                position: absolute;
+                left: 28px;
+                top: 60px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding-left: 8px;
+                padding-right: 17px;
+                height: 36px;
+                background-color: rgba(0, 0, 0, 0.2);
+                border-radius: 4px;
+                .level-icon {
+                    width: 24px;
+                    height: 24px;
+                }
+                .level-text {
+                    margin-left: 8px;
+                    margin-right: 10px;
+                    font-size: 10px;
+                    color: #fff;
+                }
+                .gap-line {
+                    margin-right: 12px;
+                    height: 20px;
+                    width: 0.5px;
+                    background-color: #fff;
+                }
+                .rock-icon {
+                    width: 24px;
+                    height: 24px;
+                }
+                .rock-text {
+                    font-size: 10px;
+                    color: #fff;
+                    margin-left: 12px;
+                    margin-right: 8px;
+                }
+            }
+            .active-btn {
+                position: absolute;
+                right: 36px;
+                bottom: 36px;
+                width: 124px;
+                height: 48px;
+                background: url('@/assets/space-page/active-btn.png') no-repeat;
+                background-size: 100% 100%;
+            }
+            .active-btn:hover { 
+                opacity: 0.85;
+            }
         }
-        .level-grade {
-            margin-left: 6px;
-            color: #D84C5A;
-            font-size: 20px;
-            font-weight: 500;
-            line-height: 16px;
+        .data {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            height: 248px;
+            margin-top: 36px;
+            .mint-value  {
+                width: 372px;
+                height: 248px;
+                border-radius: 16px;
+                background-color: #F9F9FC;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .mint-text {
+                    font-weight: 500;
+                    color: #202226;
+                    height: 20px;
+                    font-size: 20px;
+                    margin-top: 24px;
+                }
+                .mint-count {
+                    font-weight: 700;
+                    font-size: 76px;
+                    margin-top: 50px;
+                    color: #59ECC5;
+                }
+            }
+            .statistics {
+                width: 808px;
+                height: 248px;
+                border-radius: 16px;
+                background-color: #F9F9FC;
+                display: flex;
+                flex-direction: column;
+                padding-left: 36px;
+                padding-right: 36px;
+                .statistic-header {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    height: 24px;
+                    .header-text {
+                        font-weight: 500;
+                        color: #202226;
+                        height: 20px;
+                        font-size: 20px;
+                        margin-top: 16px;
+                    }
+                }
+                
+            }
         }
+    }
+    .profile {
+        flex:1;
+        height: 50px;
     }
 }
