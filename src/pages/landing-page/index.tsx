@@ -72,7 +72,7 @@ const LandingPage = () => {
     },
   ];
   return (
-    <div className="container">
+    <div className="landing_container">
       <div className="header">
         <div className="header_left">
           <img src={logo} className="logo" />
