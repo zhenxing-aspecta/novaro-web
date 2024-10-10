@@ -2,6 +2,7 @@ import "./index.less";
 import light from "../../assets/svg/light.svg";
 import more from "../../assets/svg/more.svg";
 import NovButton from "../../components/Basic/Button/NovButton.tsx";
+// @ts-ignore
 import {Avatar} from "@web3uikit/core";
 import {TabPane, Tabs} from "../../components/Basic/Tabs";
 import empty from "../../assets/img/empty.png";
@@ -41,7 +42,6 @@ const ProfilePage = () => {
                                        width="120px"/>
                             <div className="more-btn">
                                 <NovButton
-
                                     icon={<img src={more} width={24} height={24}/>}
                                     backgroundColor='#E2E6EF'
                                     textColor='#000000'
@@ -60,7 +60,7 @@ const ProfilePage = () => {
                         </div>
                     </div>
                     <Tabs>
-                        <TabPane label="Casted">
+                        <TabPane label="Posts">
                             <div className="empty">
                                 <img src={empty}/>
                                 <div>
@@ -68,14 +68,11 @@ const ProfilePage = () => {
                                 </div>
                             </div>
                         </TabPane>
-                        <TabPane label="Casted+Replies">
+                        <TabPane label="Replies">
                             <h2>Your Profile</h2>
                         </TabPane>
                         <TabPane label="Likes">
                             <h2>Likes</h2>
-                        </TabPane>
-                        <TabPane label="Channels">
-                            <h2>Channels</h2>
                         </TabPane>
                     </Tabs>
 

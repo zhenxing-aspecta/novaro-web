@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import './index.less';
 
-const Tabs = ({ children }) => {
+const Tabs = ({ children }:{children: ReactNode[]}) => {
     const [activeTab, setActiveTab] = useState(0);
 
     return (
@@ -12,7 +12,8 @@ const Tabs = ({ children }) => {
                         className={`tab-item ${index === activeTab ? 'active' : ''}`}
                         onClick={() => setActiveTab(index)}
                     >
-                        {child.props.label}
+                        
+                        {React.isValidElement(child) ? child.props.label : null}
                         <div className="line"></div>
                     </div>
                 ))}
@@ -24,7 +25,7 @@ const Tabs = ({ children }) => {
     );
 };
 
-const TabPane = ({ children }) => {
+const TabPane = ({ children }:{children: ReactNode,label?:string}) => {
     return <div>{children}</div>;
 };
 
