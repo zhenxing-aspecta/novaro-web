@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom/client';
 import { WagmiProvider } from 'wagmi';
 import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import { config } from './wagmi';
+
 import './global.css'
 import App from './App'; // 引入 App 组件
 

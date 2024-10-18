@@ -1,23 +1,38 @@
 import NovButton from "../Basic/Button/NovButton.tsx";
-import "./index.less"
-import {Avatar} from "@web3uikit/core";
+// @ts-ignore
+import { Avatar } from "@web3uikit/core";
+import { TUser } from "../../types/user-types.ts";
+import { useState } from "react";
 
-const CardItem = () => {
-    return (
-        <div className="card">
-            <div className="card-info">
-                <Avatar
-                    isRounded
-                    size={60}
-                    theme="image"
-                />
-                <div className="user-info">
-                    <div className="user-name">Jenny Wilson</div>
-                    <div className="user-id">@Jenny Wilson</div>
-                </div>
-            </div>
-            <NovButton text="Follow"/>
+const FollowUserCard = ({ user }: { user: TUser }) => {
+  const [following, setFollowing] = useState(false);
+  return (
+    <div className="flex justify-between items-center w-[360px] h-[108px] px-3 bg-white  rounded-lg">
+      <div className="flex items-center gap-2">
+        <Avatar isRounded size={60} theme="image" image={user.avatar} />
+        <div className="space-y-2">
+          <div className="font-bold">{user.nickname}</div>
+          <div className="text-[#BFBFCA] text-sm">@{user.username}</div>
         </div>
-    )
-}
-export default CardItem
+      </div>
+      {following ? (
+        <div
+          className="flex-none w-[87px] h-10 flex items-center justify-center bg-[#eee] text-[#111] rounded"
+          onClick={() => {
+            setFollowing(false);
+          }}
+        >
+          Following
+        </div>
+      ) : (
+        <NovButton
+          text="Follow"
+          onClick={() => {
+            setFollowing(true);
+          }}
+        />
+      )}
+    </div>
+  );
+};
+export default FollowUserCard;

@@ -3,86 +3,78 @@ import light from "../../assets/svg/light.svg";
 import more from "../../assets/svg/more.svg";
 import NovButton from "../../components/Basic/Button/NovButton.tsx";
 // @ts-ignore
-import {Avatar} from "@web3uikit/core";
-import {TabPane, Tabs} from "../../components/Basic/Tabs";
-import empty from "../../assets/img/empty.png";
+import { Avatar } from "@web3uikit/core";
+import { TabPane, Tabs } from "../../components/Basic/Tabs";
 import FollowList from "../../components/FollowList";
-
+import PostList from "../../components/PostList/index.tsx";
 
 const ProfilePage = () => {
-    return (
-        <div className="profile-container">
-            <div className="profile-left">
-                <div className="top">
-                    <div className="top-left">
-                        <img src={light} width={24} height={24}/>
-                        Leo
-                    </div>
-                    <NovButton text="Cast"
-                               width="74px"/>
-                </div>
-                {/*TODO 字体导入*/}
-                <div className="user">
-                    <div className="user-info">
-                        <div className="avatar-username">
-                            <Avatar
-                                isRounded
-                                size={48}
-                                theme="image"
-                            />
-                            <div className="user-text">
-                                <div className="username">Leo</div>
-                                <div className="user-id">@leo0909</div>
-                            </div>
-                        </div>
-                        <div className="user-operate">
-                            <NovButton text="Edit Profile"
-                                       backgroundColor='#E2E6EF'
-                                       textColor='#000000'
-                                       width="120px"/>
-                            <div className="more-btn">
-                                <NovButton
-                                    icon={<img src={more} width={24} height={24}/>}
-                                    backgroundColor='#E2E6EF'
-                                    textColor='#000000'
-                                    width="40px"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="follow-status">
-                        <div className="follow-item">
-                            <div className="num">240</div>
-                            <div className="text">Following</div>
-                        </div>
-                        <div className="follow-item">
-                            <div className="num">1200</div>
-                            <div className="text">Follower</div>
-                        </div>
-                    </div>
-                    <Tabs>
-                        <TabPane label="Posts">
-                            <div className="empty">
-                                <img src={empty}/>
-                                <div>
-                                    leo has not cast yet
-                                </div>
-                            </div>
-                        </TabPane>
-                        <TabPane label="Replies">
-                            <h2>Your Profile</h2>
-                        </TabPane>
-                        <TabPane label="Likes">
-                            <h2>Likes</h2>
-                        </TabPane>
-                    </Tabs>
-
-                </div>
-            </div>
-           <div className="profile-right">
-               <div className="profile-right-title">Suggested Follows</div>
-               <FollowList/>
-           </div>
+  return (
+    <div className="flex py-6 px-8 min-h-screen">
+      <div className="w-3/4 pr-4">
+        <div className="flex justify-between items-center mb-4">
+          <div className="flex items-center">
+            <img src={light} width={24} height={24} className="mr-2" />
+            Leo
+          </div>
+          <NovButton text="Cast" width="74px" />
         </div>
-    )
-}
-export default ProfilePage
+        <div className="bg-white rounded-lg p-4">
+          <div className="flex justify-between items-center mb-6">
+            <div className="flex items-center">
+              <Avatar isRounded size={48} theme="image" />
+              <div className="ml-3">
+                <div className="font-bold">Leo</div>
+                <div className="text-gray-500">@leo0909</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <NovButton
+                text="Edit Profile"
+                backgroundColor="#E2E6EF"
+                textColor="#000000"
+                width="120px"
+                className="mr-2"
+              />
+              <div>
+                <NovButton
+                  icon={<img src={more} width={24} height={24} />}
+                  backgroundColor="#E2E6EF"
+                  textColor="#000000"
+                  width="40px"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="flex mb-8 gap-4">
+            <div className="flex items-center gap-1">
+              <div className="font-bold  text-lg">240</div>
+              <div className="text-gray-500 text-sm">Following</div>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="font-bold  text-lg">1200</div>
+              <div className="text-gray-500 text-sm">Follower</div>
+            </div>
+          </div>
+          <Tabs>
+            <TabPane label="Posts">
+              <div className="flex flex-col items-center justify-center">
+                <PostList />
+              </div>
+            </TabPane>
+            <TabPane label="Replies">
+              <h2>Your Profile</h2>
+            </TabPane>
+            <TabPane label="Likes">
+              <h2>Likes</h2>
+            </TabPane>
+          </Tabs>
+        </div>
+      </div>
+      <div className="w-1/4">
+        <FollowList />
+      </div>
+    </div>
+  );
+};
+export default ProfilePage;
