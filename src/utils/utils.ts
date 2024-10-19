@@ -1,4 +1,8 @@
 // transform numbers to 1K, 2M, 3B
+
+import { ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
 // ref: https://stackoverflow.com/a/2686098/2710165
 export function humanizeNumber(number: number, decPlaces: number = 1) {
   if (number < 1000) {
@@ -38,4 +42,8 @@ export function humanizeNumber(number: number, decPlaces: number = 1) {
   }
 
   return number;
+}
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
 }

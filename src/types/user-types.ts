@@ -3,4 +3,6 @@ export type TUser = {
   nickname: string;
   avatar: string | null;
   id: number;
+  followed: boolean;
+  wallet_address?: string;
 };

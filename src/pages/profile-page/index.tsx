@@ -5,8 +5,10 @@ import NovButton from "../../components/Basic/Button/NovButton.tsx";
 // @ts-ignore
 import { Avatar } from "@web3uikit/core";
 import { TabPane, Tabs } from "../../components/Basic/Tabs";
-import FollowList from "../../components/FollowList";
+import SuggestFollowUsers from "../../components/SuggestFollowUsers";
 import PostList from "../../components/PostList/index.tsx";
+import { mockOwnPosts, mockPosts, mockWithCommentsPosts } from "../../mock-data/posts.ts";
+import { mockSuggestFollowUsers } from "../../mock-data/users.ts";
 
 const ProfilePage = () => {
   return (
@@ -59,20 +61,24 @@ const ProfilePage = () => {
           <Tabs>
             <TabPane label="Posts">
               <div className="flex flex-col items-center justify-center">
-                <PostList />
+                <PostList posts={mockOwnPosts} />
               </div>
             </TabPane>
             <TabPane label="Replies">
-              <h2>Your Profile</h2>
+              <PostList posts={mockWithCommentsPosts} />
             </TabPane>
             <TabPane label="Likes">
-              <h2>Likes</h2>
+              <PostList
+                posts={[...mockOwnPosts, ...mockPosts].filter(
+                  (post) => post.favored
+                )}
+              />
             </TabPane>
           </Tabs>
         </div>
       </div>
       <div className="w-1/4">
-        <FollowList />
+        <SuggestFollowUsers users={mockSuggestFollowUsers} />
       </div>
     </div>
   );

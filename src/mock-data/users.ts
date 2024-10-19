@@ -1,105 +1,100 @@
-import CardItem from "./CardItem.tsx";
-import { TUser } from "../../types/user-types.ts";
-import { useState } from "react";
-
 // mock data , you can replace it with your own data
+
+import { TUser } from "../types/user-types";
+
 // with null avatar
-const users: TUser[] = [
+export const mockSuggestFollowUsers: TUser[] = [
   {
     id: 1,
     nickname: "John Doe",
     username: "johndoe",
     avatar: null,
+    followed: false,
   },
   {
     id: 2,
     nickname: "Jane Doe",
     username: "janedoe",
     avatar: null,
+    followed: true,
   },
   {
     id: 3,
     nickname: "John Smith",
     username: "johnsmith",
     avatar: null,
+    followed: false,
   },
   {
     id: 4,
     nickname: "Jane Smith",
     username: "janesmith",
     avatar: null,
+    followed: false,
   },
   {
     id: 5,
     nickname: "John Doe",
     username: "johndoe",
     avatar: null,
+    followed: true,
   },
   {
     id: 6,
     nickname: "Jane Doe",
     username: "janedoe",
     avatar: null,
+    followed: true,
   },
   {
     id: 7,
     nickname: "John Smith",
     username: "johnsmith",
     avatar: null,
+    followed: false,
   },
   {
     id: 8,
     nickname: "Jane Smith",
     username: "janesmith",
     avatar: null,
+    followed: false,
   },
   {
     id: 9,
     nickname: "John Doe",
     username: "johndoe",
     avatar: null,
+    followed: true,
   },
   {
     id: 10,
     nickname: "Jane Doe",
     username: "janedoe",
     avatar: null,
+    followed: false,
   },
   {
     id: 11,
     nickname: "John Smith",
     username: "johnsmith",
     avatar: null,
+    followed: false,
   },
   {
     id: 12,
     nickname: "Jane Smith",
     username: "janesmith",
     avatar: null,
+    followed: false,
   },
 ];
 
-const SHOW_COUNT = 5;
-
-const FollowList = () => {
-  const [showMore, setShowMore] = useState(false);
-  const showUsers = showMore ? users : users.slice(0, SHOW_COUNT);
-  return (
-    <div className="space-y-4 pl-4">
-      <div className="text-xl mb-6 text-[#202226]">Suggested Follows</div>
-      <div className="flex flex-col items-center space-y-4 p-4 rounded bg-[#F9F9FC]">
-        {showUsers.map((user, index) => (
-          <CardItem key={index} user={user} />
-        ))}
-        <button
-          onClick={() => setShowMore(!showMore)}
-          className="flex items-center font-bold justify-center py-2 text-blue-500 rounded hover:text-blue-700"
-        >
-          {!showMore ? "Show More" : "Show Less"}
-        </button>
-      </div>
-    </div>
-  );
+export const mockCurrentUser: TUser = {
+  id: 1,
+  nickname: "Leo",
+  username: "leo0909",
+  avatar: null,
+  followed: false,
+  wallet_address: "0x1234567890",
 };
-
-export default FollowList;

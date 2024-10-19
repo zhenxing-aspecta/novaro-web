@@ -1,12 +1,33 @@
-import FollowList from "../../components/FollowList";
-import PostList from "../../components/PostList";
-import "./index.less";
 // @ts-ignore
 import { Input } from "@web3uikit/core";
 // @ts-ignore
 import { Search } from "@web3uikit/icons";
+import PostInput from "./PostInput";
+import SuggestFollowUsers from "../../components/SuggestFollowUsers";
+import PostList from "../../components/PostList";
+import "./index.less";
+import { mockCurrentUser, mockSuggestFollowUsers } from "../../mock-data/users";
+import { mockPosts } from "../../mock-data/posts";
+import { useState } from "react";
+import { TPost } from "../../types/post-types";
 
 const HomePage = () => {
+  const [realtimePosts, setRealtimePosts] = useState<TPost[]>(mockPosts);
+
+  const submitPost = (content: string) => {
+    const newPost: TPost = {
+      id: Math.floor(Math.random() * 1000),
+      content,
+      timestamp: new Date().toISOString(),
+      author: mockCurrentUser,
+      favored: false,
+      like_count: 0,
+      reply_count: 0,
+      share_count: 0,
+    };
+    setRealtimePosts([newPost, ...realtimePosts]);
+  };
+
   return (
     <div className="home-container">
       <div className="home-left">
@@ -26,11 +47,13 @@ const HomePage = () => {
             onChange={function noRefCheck() {}}
           />
         </div>
-        <div></div>
-        <PostList />
+        <div className="mb-10">
+          <PostInput onPost={submitPost} />
+        </div>
+        <PostList posts={realtimePosts} />
       </div>
       <div className="home-right">
-        <FollowList />
+        <SuggestFollowUsers users={mockSuggestFollowUsers} />
       </div>
     </div>
   );
