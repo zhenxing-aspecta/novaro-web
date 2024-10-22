@@ -6,7 +6,7 @@ import {
 } from "wagmi";
 import "./index.less";
 import dst from "../../abi/tokens/DynamicSocialToken.json";
-import { CONSTRACT_ADDRESS_LOCAL } from "../../constants";
+import { DST_CONTRACT_ADDRESS_LOCAL } from "../../constants";
 
 const MintButton = () => {
   const { address, addresses } = useAccount();
@@ -14,7 +14,7 @@ const MintButton = () => {
 
   const handleMint = () => isPending ||
     writeContract({
-      address: CONSTRACT_ADDRESS_LOCAL,
+      address: DST_CONTRACT_ADDRESS_LOCAL,
       abi: dst.abi,
       functionName: "mint",
       args: [address, 157884],
