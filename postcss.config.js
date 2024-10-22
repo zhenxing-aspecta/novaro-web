@@ -9,6 +9,8 @@ export default {
             mediaQuery: false, // 是否转换媒体查询中的 px
             minPixelValue: 0 // 最小的需要转换的 px 值
         },
+        tailwindcss: {},
+        autoprefixer: {},
     },
 };
 

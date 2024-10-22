@@ -3,7 +3,7 @@ import "./index.less";
 import { ConnectButton } from '@rainbow-me/rainbowkit';
 import MintButton from "../../components/MintButton";
 import dst from "../../abi/tokens/DynamicSocialToken.json";
-import { CONSTRACT_ADDRESS_LOCAL } from "../../constants";
+import { DST_CONTRACT_ADDRESS_LOCAL } from "../../constants";
 import { create } from 'ipfs-http-client';
 import ReactEChartsCore from 'echarts-for-react/lib/core';
 import * as echarts from 'echarts/core';
@@ -34,7 +34,7 @@ const SpacePage = () => {
         error,
         isPending
     } = useReadContract({
-        address: CONSTRACT_ADDRESS_LOCAL,
+        address: DST_CONTRACT_ADDRESS_LOCAL,
         abi: dst.abi,
         functionName: "getDstData",
         args: [2],
