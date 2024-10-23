@@ -11,6 +11,6 @@
     },
     // 其他编译器选项
     "noUnusedLocals": false,
-    "noUnusedParameters": false
+    "noUnusedParameters": false,
   }
 }

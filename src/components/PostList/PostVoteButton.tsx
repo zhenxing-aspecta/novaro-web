@@ -1,5 +1,5 @@
 import { Icon } from "@iconify/react";
-import React, { useState } from "react";
+import { useState } from "react";
 import { cn, humanizeNumber } from "../../utils/utils";
 
 export default function PostVoteButton({
